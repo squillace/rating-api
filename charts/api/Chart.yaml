@@ -1,0 +1,7 @@
+name: rating-api
+home: https://github.com/chzbrgr71/rating-api
+version: 1.0
+description: API with mongodb for end-to-end developer experience demo
+maintainers: 
+  - name: chzbrgr71
+    email: brianisrunning@gmail.com
