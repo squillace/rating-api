@@ -74,7 +74,6 @@ function helmJobRunner (config, h, deployType) {
         "cd /src/",
         "git clone https://github.com/chzbrgr71/rating-charts.git",
         "cd rating-charts",
-        "ls -la",
         `helm upgrade --install rating-api ./rating-api --set api.image=${config.get("apiACRImage")} --set api.imageTag=${config.get("imageTag")}`
     ]
 }
