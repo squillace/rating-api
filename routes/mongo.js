@@ -7,7 +7,7 @@ var Hero = mongoose.model('Hero');
 
 /* Default GET JSON for Mongo API */
 router.get('/', function(req, res, next) {
-  var response = new jsonResponse("Default /api endpoint for mongo", 200, []);
+  var response = new jsonResponse("Default /api endpoint for Mongo", 200, []);
   res.json(response).status(response.status);
 });
 
