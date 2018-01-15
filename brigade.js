@@ -68,7 +68,7 @@ function dockerJobRunner(config, d) {
 
 function helmJobRunner (config, h, deployType) {
     h.storage.enabled = false
-    h.image = "lachlanevenson/k8s-helm:2.7.2"
+    h.image = "lachlanevenson/k8s-helm:v2.7.2"
     h.tasks = [
         "cd /src/",
         "git clone https://github.com/chzbrgr71/rating-charts.git",
