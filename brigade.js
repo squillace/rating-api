@@ -8,7 +8,7 @@ events.on("push", (brigadeEvent, project) => {
     brigConfig.set("acrServer", project.secrets.acrServer)
     brigConfig.set("acrUsername", project.secrets.acrUsername)
     brigConfig.set("acrPassword", project.secrets.acrPassword)
-    brigConfig.set("apiImage", "chzbrgr71/rating-api")
+    brigConfig.set("apiImage", "squillace/rating-api")
     brigConfig.set("gitSHA", brigadeEvent.commit.substr(0,7))
     brigConfig.set("eventType", brigadeEvent.type)
     brigConfig.set("branch", getBranch(gitPayload))
@@ -52,7 +52,7 @@ events.on("after", (event, proj) => {
 
 function dockerJobRunner(config, d) {
     d.storage.enabled = false
-    d.image = "chzbrgr71/dockernd:node"
+    d.image = "chzbrgr71/dockernd:node" // publicly avaiable docker in docker image.
     d.privileged = true
     d.tasks = [
         "dockerd-entrypoint.sh &",
@@ -70,10 +70,9 @@ function helmJobRunner (config, h, deployType) {
     h.storage.enabled = false
     h.image = "chzbrgr71/k8s-helm:v2.7.2"
     h.tasks = [
-        "cd /src/",
-        "git clone https://github.com/chzbrgr71/rating-charts.git",
-        "cd rating-charts",
-        `helm upgrade --install rating-api ./rating-api --set api.image=${config.get("apiACRImage")} --set api.imageTag=${config.get("imageTag")}`
+        "cd /src/", // must cd into the src directory, which is root.
+        "git clone https://github.com/squillace/rating-api.git",
+        `helm upgrade --install rating-api charts/rating-api --set api.image=${config.get("apiACRImage")} --set api.imageTag=${config.get("imageTag")}`
     ]
 }
 

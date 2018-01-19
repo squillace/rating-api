@@ -1,6 +1,6 @@
-project: "<change this>"
-repository: "github.com/<change this>"
-cloneURL: "https://github.com/<change this>.git"
+project: "squillace/rating-api"
+repository: "github.com/squillace/rating-api"
+cloneURL: "https://github.com/squillace/rating-api.git"
 # Used by GitHub to compute hooks.
 # MAKE SURE YOU CHANGE THIS. It's basically a password.
 sharedSecret: "<change this>"
@@ -10,7 +10,7 @@ sharedSecret: "<change this>"
 github:
   token: "<change this>"
 secrets:
-  acrServer: <change this>.azurecr.io
-  acrUsername: <change this>
+  acrServer: squillace.azurecr.io
+  acrUsername: squillace
   acrPassword: "<change this>"
   slackWebhook: "<change this>"
