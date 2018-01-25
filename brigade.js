@@ -71,7 +71,7 @@ function helmJobRunner (config, h, deployType) {
     h.image = "chzbrgr71/k8s-helm:v2.7.2"
     h.tasks = [
         "cd /src/", // must cd into the src directory, which is root.
-        "git clone https://github.com/squillace/rating-api.git",
+        "git clone https://github.com/squillace/rating-charts.git",
         `helm upgrade --install rating-api charts/rating-api --set api.image=${config.get("apiACRImage")} --set api.imageTag=${config.get("imageTag")}`
     ]
 }
